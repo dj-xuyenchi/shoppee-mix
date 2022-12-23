@@ -38,6 +38,55 @@ namespace RINGAWEB.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("RINGAWEB.Entities.ProductPropertyDetail", b =>
+                {
+                    b.Property<int>("ProductPropertyDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductPropertyDetailId"), 1L, 1);
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ProductPropertyDetailName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<double>("ShellPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("ProductPropertyDetailId");
+
+                    b.ToTable("ProductProperties");
+                });
+
+            modelBuilder.Entity("RINGAWEB.Entities.ProductPropertyDetailMap", b =>
+                {
+                    b.Property<int>("ProductPropertyDetailMapId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductPropertyDetailMapId"), 1L, 1);
+
+                    b.Property<int>("ProductPropertyDetailId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PropertyDetailId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductPropertyDetailMapId");
+
+                    b.HasIndex("ProductPropertyDetailId");
+
+                    b.HasIndex("PropertyDetailId");
+
+                    b.ToTable("ProductPropertyDetailMaps");
+                });
+
             modelBuilder.Entity("RINGAWEB.Entities.Property", b =>
                 {
                     b.Property<int>("PropertyId")
@@ -63,6 +112,51 @@ namespace RINGAWEB.Migrations
                     b.ToTable("Properties");
                 });
 
+            modelBuilder.Entity("RINGAWEB.Entities.PropertyDetail", b =>
+                {
+                    b.Property<int>("PropertyDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyDetailId"), 1L, 1);
+
+                    b.Property<string>("PropertyDetailCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PropertyDetailDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PropertyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PropertyDetailId");
+
+                    b.HasIndex("PropertyId");
+
+                    b.ToTable("PropertyDetails");
+                });
+
+            modelBuilder.Entity("RINGAWEB.Entities.ProductPropertyDetailMap", b =>
+                {
+                    b.HasOne("RINGAWEB.Entities.ProductPropertyDetail", "ProductPropertyDetail")
+                        .WithMany()
+                        .HasForeignKey("ProductPropertyDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RINGAWEB.Entities.PropertyDetail", "PropertyDetail")
+                        .WithMany()
+                        .HasForeignKey("PropertyDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductPropertyDetail");
+
+                    b.Navigation("PropertyDetail");
+                });
+
             modelBuilder.Entity("RINGAWEB.Entities.Property", b =>
                 {
                     b.HasOne("RINGAWEB.Entities.Product", "Product")
@@ -72,6 +166,17 @@ namespace RINGAWEB.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("RINGAWEB.Entities.PropertyDetail", b =>
+                {
+                    b.HasOne("RINGAWEB.Entities.Property", "Property")
+                        .WithMany()
+                        .HasForeignKey("PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Property");
                 });
 #pragma warning restore 612, 618
         }

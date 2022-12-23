@@ -1,6 +1,14 @@
-﻿namespace RINGAWEB.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RINGAWEB.Entities
 {
     public class PropertyDetail
     {
+        public int PropertyDetailId { get; set; }
+        public int PropertyId { get; set; }
+        public string PropertyDetailCode { get; set; }
+        public string PropertyDetailDetail { get; set; }
+        [ForeignKey("PropertyId")]
+        public Property Property { get; set; }
     }
 }
