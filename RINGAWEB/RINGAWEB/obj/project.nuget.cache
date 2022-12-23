@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "X5Bmdaz/YkO++//9AGiDfl81sJokqGzGjkQPYKkHm5OGm3iwT0vTB8fSD+TSZtt3GKjc5YmMAo1xyg2s5YV5xA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RINGAWEB.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LTS\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\LTS\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\LTS\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\LTS\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\LTS\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\LTS\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
