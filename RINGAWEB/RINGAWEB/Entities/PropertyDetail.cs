@@ -10,5 +10,8 @@ namespace RINGAWEB.Entities
         public string PropertyDetailDetail { get; set; }
         [ForeignKey("PropertyId")]
         public Property Property { get; set; }
+        public int? ProductImgId { get; set; }
+        public ProductImg? ProductImg { get; set; }
+
     }
 }
