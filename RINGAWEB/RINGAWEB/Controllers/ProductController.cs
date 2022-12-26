@@ -11,13 +11,17 @@ namespace RINGAWEB.Controllers
         [HttpPost("data")]
         public ActionResult getProduct([FromBody] int[] productProperties)
         {
-
-            return Ok(productProperties);
+            return Ok(productServices.getData());
         }
         [HttpPost("buy")]
         public ActionResult buyProduct([FromBody] int[] productProperties,[FromQuery] int productId)
         {
             return Ok(productServices.buyProduct(productProperties, productId));
+        }
+        [HttpPost("img")]
+        public ActionResult img()
+        {
+            return Ok(productServices.testImg());
         }
     }
 }

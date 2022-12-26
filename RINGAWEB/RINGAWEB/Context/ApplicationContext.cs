@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RINGAWEB.Entities;
+using RINGAWEB.Entities.Product;
 
 namespace RINGAWEB.Context
 {

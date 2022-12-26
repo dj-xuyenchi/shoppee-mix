@@ -1,5 +1,5 @@
 ﻿using RINGAWEB.Context;
-using RINGAWEB.Entities;
+using RINGAWEB.Entities.Product;
 using RINGAWEB.Object;
 
 namespace RINGAWEB.Services.ProductServices
@@ -18,7 +18,7 @@ namespace RINGAWEB.Services.ProductServices
             ProductDetail pd = context.ProductDetails.Find(productDetail);
             pd.Quantity -= 1;
             int preProperty = (int)pd.ParentId;
-            while (preProperty != null)
+            while (true)
             {
                 ProductDetail prePd = context.ProductDetails.Find(preProperty);
                 prePd.Quantity -= 1;
@@ -42,6 +42,13 @@ namespace RINGAWEB.Services.ProductServices
             dataRespon.message = "ok";
             return dataRespon;
         }
-
+        public DataRespon<ProductImg> testImg()
+        {
+            DataRespon<ProductImg> dataRespon = new DataRespon<ProductImg>();
+            dataRespon.Data = context.ProductImgs.Find(1);
+            dataRespon.status = 1;
+            dataRespon.message = "ok";
+            return dataRespon;
+        }
     }
 }

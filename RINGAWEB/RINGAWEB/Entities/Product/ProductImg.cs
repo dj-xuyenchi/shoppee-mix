@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RINGAWEB.Entities
+namespace RINGAWEB.Entities.Product
 {
     public class ProductImg
     {
@@ -9,6 +10,7 @@ namespace RINGAWEB.Entities
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
         public bool IsProductAvatar { get; set; }
+        [DataType("image")]
         public byte[] ProductImgData { get; set; }
     }
 }

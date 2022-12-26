@@ -1,4 +1,4 @@
-﻿namespace RINGAWEB.Entities
+﻿namespace RINGAWEB.Entities.Product
 {
     public class Product
     {

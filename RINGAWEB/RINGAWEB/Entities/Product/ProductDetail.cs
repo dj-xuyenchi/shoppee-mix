@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RINGAWEB.Entities
+namespace RINGAWEB.Entities.Product
 {
     public class ProductDetail
     {
@@ -12,6 +12,6 @@ namespace RINGAWEB.Entities
         public int? ParentId { get; set; }
         [ForeignKey("ParentId")]
         public ProductDetail? ParentProductDetail { get; set; }
-    
+
     }
 }

@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace RINGAWEB.Migrations
 {
-    public partial class update2 : Migration
+    public partial class hi : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,6 +45,27 @@ namespace RINGAWEB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductImgs",
+                columns: table => new
+                {
+                    ProductImgId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    IsProductAvatar = table.Column<bool>(type: "bit", nullable: false),
+                    ProductImgData = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductImgs", x => x.ProductImgId);
+                    table.ForeignKey(
+                        name: "FK_ProductImgs_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Properties",
                 columns: table => new
                 {
@@ -72,11 +94,17 @@ namespace RINGAWEB.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PropertyId = table.Column<int>(type: "int", nullable: false),
                     PropertyDetailCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropertyDetailDetail = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PropertyDetailDetail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductImgId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PropertyDetails", x => x.PropertyDetailId);
+                    table.ForeignKey(
+                        name: "FK_PropertyDetails_ProductImgs_ProductImgId",
+                        column: x => x.ProductImgId,
+                        principalTable: "ProductImgs",
+                        principalColumn: "ProductImgId");
                     table.ForeignKey(
                         name: "FK_PropertyDetails_Properties_PropertyId",
                         column: x => x.PropertyId,
@@ -138,9 +166,19 @@ namespace RINGAWEB.Migrations
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductImgs_ProductId",
+                table: "ProductImgs",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Properties_ProductId",
                 table: "Properties",
                 column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PropertyDetails_ProductImgId",
+                table: "PropertyDetails",
+                column: "ProductImgId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PropertyDetails_PropertyId",
@@ -158,6 +196,9 @@ namespace RINGAWEB.Migrations
 
             migrationBuilder.DropTable(
                 name: "PropertyDetails");
+
+            migrationBuilder.DropTable(
+                name: "ProductImgs");
 
             migrationBuilder.DropTable(
                 name: "Properties");

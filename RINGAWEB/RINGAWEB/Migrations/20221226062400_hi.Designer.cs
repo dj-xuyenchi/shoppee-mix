@@ -12,8 +12,8 @@ using RINGAWEB.Context;
 namespace RINGAWEB.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221225161826_update8")]
-    partial class update8
+    [Migration("20221226062400_hi")]
+    partial class hi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

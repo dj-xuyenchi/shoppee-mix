@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RINGAWEB.Entities
+namespace RINGAWEB.Entities.Product
 {
     public class Property
     {
