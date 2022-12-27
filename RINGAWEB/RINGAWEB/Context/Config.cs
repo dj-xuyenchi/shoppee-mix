@@ -1,4 +1,4 @@
-﻿namespace RINGAWEB.Context
+﻿namespace RingaWEB.Context
 {
     public class Config
     {

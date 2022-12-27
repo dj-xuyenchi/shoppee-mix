@@ -1,4 +1,4 @@
-﻿namespace RINGAWEB.Object
+﻿namespace RingaWEB.Object
 {
     public class DataRespon<T>
     {

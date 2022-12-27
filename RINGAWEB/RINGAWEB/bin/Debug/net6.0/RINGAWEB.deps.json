@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "RINGAWEB/1.0.0": {
+      "RingaWEB/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.12",
           "Microsoft.EntityFrameworkCore.Design": "6.0.12",
@@ -15,7 +15,7 @@
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
-          "RINGAWEB.dll": {}
+          "RingaWEB.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -491,7 +491,7 @@
     }
   },
   "libraries": {
-    "RINGAWEB/1.0.0": {
+    "RingaWEB/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

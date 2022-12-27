@@ -1,7 +1,7 @@
-﻿using RINGAWEB.Entities.Product;
-using RINGAWEB.Object;
+﻿using RingaWEB.Entities.ProductPkg;
+using RingaWEB.Object;
 
-namespace RINGAWEB.Services.ProductServices
+namespace RingaWEB.Services.ProductServices
 {
     public interface IProductServices
     {

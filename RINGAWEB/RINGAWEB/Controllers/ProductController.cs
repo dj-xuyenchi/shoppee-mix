@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RINGAWEB.Services.ProductServices;
+using RingaWEB.Services.ProductServices;
 
-namespace RINGAWEB.Controllers
+namespace RingaWEB.Controllers
 {
     [Route("api/productv1.0/")]
     [ApiController]

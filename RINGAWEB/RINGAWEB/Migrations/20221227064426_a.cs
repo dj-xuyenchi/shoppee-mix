@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace RINGAWEB.Migrations
+namespace RingaWEB.Migrations
 {
-    public partial class hi : Migration
+    public partial class a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,9 +16,9 @@ namespace RINGAWEB.Migrations
                     ProductDetailId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductPropertyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    ShellPrice = table.Column<double>(type: "float", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: true),
+                    ShellPrice = table.Column<double>(type: "float", nullable: true),
                     ParentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -50,9 +50,9 @@ namespace RINGAWEB.Migrations
                 {
                     ProductImgId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    IsProductAvatar = table.Column<bool>(type: "bit", nullable: false),
-                    ProductImgData = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    IsProductAvatar = table.Column<bool>(type: "bit", nullable: true),
+                    ProductImgData = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -61,8 +61,7 @@ namespace RINGAWEB.Migrations
                         name: "FK_ProductImgs_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
-                        principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductId");
                 });
 
             migrationBuilder.CreateTable(
@@ -71,9 +70,9 @@ namespace RINGAWEB.Migrations
                 {
                     PropertyId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: true),
                     PropertyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropertySort = table.Column<int>(type: "int", nullable: false)
+                    PropertySort = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -82,8 +81,7 @@ namespace RINGAWEB.Migrations
                         name: "FK_Properties_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
-                        principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductId");
                 });
 
             migrationBuilder.CreateTable(
@@ -92,7 +90,7 @@ namespace RINGAWEB.Migrations
                 {
                     PropertyDetailId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PropertyId = table.Column<int>(type: "int", nullable: false),
+                    PropertyId = table.Column<int>(type: "int", nullable: true),
                     PropertyDetailCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PropertyDetailDetail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductImgId = table.Column<int>(type: "int", nullable: true)
@@ -109,8 +107,7 @@ namespace RINGAWEB.Migrations
                         name: "FK_PropertyDetails_Properties_PropertyId",
                         column: x => x.PropertyId,
                         principalTable: "Properties",
-                        principalColumn: "PropertyId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PropertyId");
                 });
 
             migrationBuilder.CreateTable(
@@ -119,8 +116,8 @@ namespace RINGAWEB.Migrations
                 {
                     ProductDetailPropertyDetailId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductDetailId = table.Column<int>(type: "int", nullable: false),
-                    PropertyDetailId = table.Column<int>(type: "int", nullable: false),
+                    ProductDetailId = table.Column<int>(type: "int", nullable: true),
+                    PropertyDetailId = table.Column<int>(type: "int", nullable: true),
                     ProductId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -130,8 +127,7 @@ namespace RINGAWEB.Migrations
                         name: "FK_ProductDetailPropertyDetails_ProductDetails_ProductDetailId",
                         column: x => x.ProductDetailId,
                         principalTable: "ProductDetails",
-                        principalColumn: "ProductDetailId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductDetailId");
                     table.ForeignKey(
                         name: "FK_ProductDetailPropertyDetails_Products_ProductId",
                         column: x => x.ProductId,
@@ -141,8 +137,7 @@ namespace RINGAWEB.Migrations
                         name: "FK_ProductDetailPropertyDetails_PropertyDetails_PropertyDetailId",
                         column: x => x.PropertyDetailId,
                         principalTable: "PropertyDetails",
-                        principalColumn: "PropertyDetailId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PropertyDetailId");
                 });
 
             migrationBuilder.CreateIndex(

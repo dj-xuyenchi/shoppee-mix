@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RINGAWEB.Context;
+using RingaWEB.Context;
 
 #nullable disable
 
-namespace RINGAWEB.Migrations
+namespace RingaWEB.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221226062400_hi")]
-    partial class hi
+    [Migration("20221227064426_a")]
+    partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace RINGAWEB.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("RINGAWEB.Entities.Product", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace RINGAWEB.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.ProductDetail", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductDetail", b =>
                 {
                     b.Property<int>("ProductDetailId")
                         .ValueGeneratedOnAdd()
@@ -52,17 +52,17 @@ namespace RINGAWEB.Migrations
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
+                    b.Property<double?>("Price")
                         .HasColumnType("float");
 
                     b.Property<string>("ProductPropertyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<double>("ShellPrice")
+                    b.Property<double?>("ShellPrice")
                         .HasColumnType("float");
 
                     b.HasKey("ProductDetailId");
@@ -72,7 +72,7 @@ namespace RINGAWEB.Migrations
                     b.ToTable("ProductDetails");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.ProductDetailPropertyDetail", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductDetailPropertyDetail", b =>
                 {
                     b.Property<int>("ProductDetailPropertyDetailId")
                         .ValueGeneratedOnAdd()
@@ -80,13 +80,13 @@ namespace RINGAWEB.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductDetailPropertyDetailId"), 1L, 1);
 
-                    b.Property<int>("ProductDetailId")
+                    b.Property<int?>("ProductDetailId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PropertyDetailId")
+                    b.Property<int?>("PropertyDetailId")
                         .HasColumnType("int");
 
                     b.HasKey("ProductDetailPropertyDetailId");
@@ -100,7 +100,7 @@ namespace RINGAWEB.Migrations
                     b.ToTable("ProductDetailPropertyDetails");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.ProductImg", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductImg", b =>
                 {
                     b.Property<int>("ProductImgId")
                         .ValueGeneratedOnAdd()
@@ -108,14 +108,13 @@ namespace RINGAWEB.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductImgId"), 1L, 1);
 
-                    b.Property<bool>("IsProductAvatar")
+                    b.Property<bool?>("IsProductAvatar")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<byte[]>("ProductImgData")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.HasKey("ProductImgId");
@@ -125,7 +124,7 @@ namespace RINGAWEB.Migrations
                     b.ToTable("ProductImgs");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.Property", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.Property", b =>
                 {
                     b.Property<int>("PropertyId")
                         .ValueGeneratedOnAdd()
@@ -133,14 +132,14 @@ namespace RINGAWEB.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"), 1L, 1);
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<string>("PropertyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PropertySort")
+                    b.Property<int?>("PropertySort")
                         .HasColumnType("int");
 
                     b.HasKey("PropertyId");
@@ -150,7 +149,7 @@ namespace RINGAWEB.Migrations
                     b.ToTable("Properties");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.PropertyDetail", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.PropertyDetail", b =>
                 {
                     b.Property<int>("PropertyDetailId")
                         .ValueGeneratedOnAdd()
@@ -169,7 +168,7 @@ namespace RINGAWEB.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PropertyId")
+                    b.Property<int?>("PropertyId")
                         .HasColumnType("int");
 
                     b.HasKey("PropertyDetailId");
@@ -181,32 +180,28 @@ namespace RINGAWEB.Migrations
                     b.ToTable("PropertyDetails");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.ProductDetail", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductDetail", b =>
                 {
-                    b.HasOne("RINGAWEB.Entities.ProductDetail", "ParentProductDetail")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.ProductDetail", "ParentProductDetail")
                         .WithMany()
                         .HasForeignKey("ParentId");
 
                     b.Navigation("ParentProductDetail");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.ProductDetailPropertyDetail", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductDetailPropertyDetail", b =>
                 {
-                    b.HasOne("RINGAWEB.Entities.ProductDetail", "ProductDetail")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.ProductDetail", "ProductDetail")
                         .WithMany()
-                        .HasForeignKey("ProductDetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductDetailId");
 
-                    b.HasOne("RINGAWEB.Entities.Product", "Product")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
-                    b.HasOne("RINGAWEB.Entities.PropertyDetail", "PropertyDetail")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.PropertyDetail", "PropertyDetail")
                         .WithMany()
-                        .HasForeignKey("PropertyDetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PropertyDetailId");
 
                     b.Navigation("Product");
 
@@ -215,39 +210,33 @@ namespace RINGAWEB.Migrations
                     b.Navigation("PropertyDetail");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.ProductImg", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductImg", b =>
                 {
-                    b.HasOne("RINGAWEB.Entities.Product", "Product")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.Property", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.Property", b =>
                 {
-                    b.HasOne("RINGAWEB.Entities.Product", "Product")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("RINGAWEB.Entities.PropertyDetail", b =>
+            modelBuilder.Entity("RingaWEB.Entities.ProductPkg.PropertyDetail", b =>
                 {
-                    b.HasOne("RINGAWEB.Entities.ProductImg", "ProductImg")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.ProductImg", "ProductImg")
                         .WithMany()
                         .HasForeignKey("ProductImgId");
 
-                    b.HasOne("RINGAWEB.Entities.Property", "Property")
+                    b.HasOne("RingaWEB.Entities.ProductPkg.Property", "Property")
                         .WithMany()
-                        .HasForeignKey("PropertyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PropertyId");
 
                     b.Navigation("ProductImg");
 

@@ -1,8 +1,8 @@
-﻿using RINGAWEB.Context;
-using RINGAWEB.Entities.Product;
-using RINGAWEB.Object;
+﻿using RingaWEB.Context;
+using RingaWEB.Entities.ProductPkg;
+using RingaWEB.Object;
 
-namespace RINGAWEB.Services.ProductServices
+namespace RingaWEB.Services.ProductServices
 {
     public class ProductServices : IProductServices
     {
@@ -11,7 +11,7 @@ namespace RINGAWEB.Services.ProductServices
         public DataRespon<ProductDetail> buyProduct(int[] productProperties,int productId)
         {
             DataRespon<ProductDetail> dataRespon = new DataRespon<ProductDetail>();
-            int productDetail = context.ProductDetailPropertyDetails.Where(x => 
+            int productDetail = (int)context.ProductDetailPropertyDetails.Where(x => 
             x.PropertyDetailId == productProperties[0] ||
             x.PropertyDetailId == productProperties[1] ||
             x.PropertyDetailId == productProperties[2] && x.ProductId == 1).ToList().GroupBy(x => x.ProductDetailId).Where(x => x.Count() == 3).First().Key;

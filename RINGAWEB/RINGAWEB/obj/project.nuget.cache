@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JbEydJOYL7tLdwX9lFa29lPVKWANivF26HE2N1n8k58YUyxBGmkHnGinnzLreoEsX0x7r+PdE8EFD4wf4OixWw==",
+  "dgSpecHash": "2CnLDpvEBR3pmitbuF5tbY1dIM/mvsz9KPLaYk5saw8cBA+mayW5U7D4rl7vs1zpNgM8QYLUZmrMMXs7i7MwIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RINGAWEB.csproj",
+  "projectFilePath": "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LTS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\LTS\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
