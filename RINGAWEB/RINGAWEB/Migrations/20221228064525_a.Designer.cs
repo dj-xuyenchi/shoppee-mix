@@ -12,17 +12,18 @@ using RingaWEB.Context;
 namespace RingaWEB.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221228060206_a")]
+    [Migration("20221228064525_a")]
     partial class a
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.12")
+                .HasAnnotation("ProductVersion", "7.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("RingaWEB.Entities.AccountPkg.Account", b =>
                 {
@@ -30,7 +31,11 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"));
+
+                    b.Property<string>("AccountCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -90,7 +95,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountGenderId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountGenderId"));
 
                     b.Property<string>("AccountGenderCode")
                         .IsRequired()
@@ -111,7 +116,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountRoleId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountRoleId"));
 
                     b.Property<string>("AccountRoleCode")
                         .IsRequired()
@@ -132,7 +137,11 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountShipContactId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountShipContactId"));
+
+                    b.Property<string>("AccountShipContactCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateDateTime")
                         .HasColumnType("datetime2");
@@ -159,7 +168,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountStatusId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountStatusId"));
 
                     b.Property<string>("AccountStatusCode")
                         .IsRequired()
@@ -180,7 +189,11 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillId"));
+
+                    b.Property<string>("BillCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BillStatusId")
                         .HasColumnType("int");
@@ -242,7 +255,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillStatusId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillStatusId"));
 
                     b.Property<string>("BillStatusCode")
                         .IsRequired()
@@ -263,7 +276,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BuyMethodId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BuyMethodId"));
 
                     b.Property<string>("BuyMethodCode")
                         .IsRequired()
@@ -284,7 +297,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShipMethodId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShipMethodId"));
 
                     b.Property<string>("ShipMethodCode")
                         .IsRequired()
@@ -305,7 +318,11 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
+
+                    b.Property<string>("ProductCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -322,7 +339,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductDetailId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductDetailId"));
 
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
@@ -353,7 +370,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductDetailPropertyDetailId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductDetailPropertyDetailId"));
 
                     b.Property<int?>("ProductDetailId")
                         .HasColumnType("int");
@@ -381,7 +398,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductImgId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductImgId"));
 
                     b.Property<bool?>("IsProductAvatar")
                         .HasColumnType("bit");
@@ -405,7 +422,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"));
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
@@ -430,7 +447,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyDetailId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyDetailId"));
 
                     b.Property<int?>("ProductImgId")
                         .HasColumnType("int");
@@ -461,13 +478,17 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopId"));
 
                     b.Property<int>("AccountOwnerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreateDateTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ShopCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShopName")
                         .IsRequired()
@@ -491,34 +512,13 @@ namespace RingaWEB.Migrations
                     b.ToTable("Shops");
                 });
 
-            modelBuilder.Entity("RingaWEB.Entities.ShopPkg.ShopeType", b =>
-                {
-                    b.Property<int>("ShopeTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopeTypeId"), 1L, 1);
-
-                    b.Property<string>("ShopeTypeCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ShopeTypeDetail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ShopeTypeId");
-
-                    b.ToTable("ShopeTypes");
-                });
-
             modelBuilder.Entity("RingaWEB.Entities.ShopPkg.ShopShopType", b =>
                 {
                     b.Property<int>("ShopShopTypeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopShopTypeId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopShopTypeId"));
 
                     b.Property<int?>("ShopId")
                         .HasColumnType("int");
@@ -542,7 +542,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopStatusId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopStatusId"));
 
                     b.Property<string>("ShopStatusCode")
                         .IsRequired()
@@ -557,13 +557,34 @@ namespace RingaWEB.Migrations
                     b.ToTable("ShopStatuses");
                 });
 
+            modelBuilder.Entity("RingaWEB.Entities.ShopPkg.ShopeType", b =>
+                {
+                    b.Property<int>("ShopeTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopeTypeId"));
+
+                    b.Property<string>("ShopeTypeCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopeTypeDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShopeTypeId");
+
+                    b.ToTable("ShopeTypes");
+                });
+
             modelBuilder.Entity("RingaWEB.Entities.VoucherPkg.Voucher", b =>
                 {
                     b.Property<int>("VoucherId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoucherId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoucherId"));
 
                     b.Property<DateTime>("CreateDateTime")
                         .HasColumnType("datetime2");
@@ -596,7 +617,7 @@ namespace RingaWEB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoucherTypeId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoucherTypeId"));
 
                     b.Property<string>("VoucherTypeCode")
                         .IsRequired()

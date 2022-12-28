@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RingaWEB.Migrations
 {
+    /// <inheritdoc />
     public partial class a : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -43,6 +45,7 @@ namespace RingaWEB.Migrations
                 {
                     AccountShipContactId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    AccountShipContactCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReveiceName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReveicePhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreateDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -123,6 +126,7 @@ namespace RingaWEB.Migrations
                 {
                     ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -210,6 +214,7 @@ namespace RingaWEB.Migrations
                 {
                     AccountId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    AccountCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -289,6 +294,7 @@ namespace RingaWEB.Migrations
                 {
                     BillId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    BillCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BillStatusId = table.Column<int>(type: "int", nullable: true),
                     CreateDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -339,6 +345,7 @@ namespace RingaWEB.Migrations
                 {
                     ShopId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ShopCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AccountOwnerId = table.Column<int>(type: "int", nullable: false),
                     ShopName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ShopeStatusId = table.Column<int>(type: "int", nullable: true),
@@ -544,6 +551,7 @@ namespace RingaWEB.Migrations
                 column: "ShopTypeId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

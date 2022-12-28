@@ -23,6 +23,9 @@ namespace RingaWEB.Entities.BillPkg
         public int? VoucherShipId { get; set; }
         [ForeignKey("VoucherShipId")]
         public Voucher? VoucherShip { get; set; }
+        public int? VoucherShopId { get; set; }
+        [ForeignKey("VoucherShopId")]
+        public Voucher? VoucherShop { get; set; }
         public int? BuyMethodId { get; set; }
         [ForeignKey("BuyMethodId")]
         public BuyMethod? BuyMethod { get; set; }

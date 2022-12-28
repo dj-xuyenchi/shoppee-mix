@@ -4,7 +4,7 @@
     {
         public static string dbConectionName()
         {
-            return "Data Source=localhost;Initial Catalog=shoppeemix;User ID=sa;Password=Mamama99!;encrypt=true;trustservercertificate=true;";
+            return "Data Source=localhost;Initial Catalog=shoppeemix;User ID=sa;Password=1231234;encrypt=true;trustservercertificate=true;";
         }
     
     }
