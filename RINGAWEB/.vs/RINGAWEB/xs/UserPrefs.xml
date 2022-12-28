@@ -1,13 +1,33 @@
 ﻿<Properties StartupConfiguration="{DF7A205A-AFAF-4D8D-A926-E2421F219116}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.RingaWEB PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RINGAWEB/Program.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RINGAWEB/Entities/ProductPkg/CategoryType.cs">
     <Files>
-      <File FileName="RINGAWEB/Program.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Program.cs" Line="6" Column="25" />
+      <File FileName="RINGAWEB/Controllers/ProductController.cs" Line="24" Column="27" />
+      <File FileName="RINGAWEB/Services/ProductServices/IProductServices.cs" Line="8" Column="42" />
+      <File FileName="RINGAWEB/Services/ProductServices/ProductServices.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/VoucherPkg/Voucher.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/ShopPkg/Shop.cs" Line="10" Column="43" />
+      <File FileName="RINGAWEB/Entities/BillPkg/Bill.cs" Line="9" Column="43" />
+      <File FileName="RINGAWEB/Entities/ProductPkg/Property.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/BillPkg/BillStatus.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/BillPkg/ShipMethod.cs" Line="9" Column="1" />
+      <File FileName="RINGAWEB/Entities/BillPkg/BuyMethod.cs" Line="8" Column="46" />
+      <File FileName="RINGAWEB/Context/ApplicationContext.cs" Line="44" Column="20" />
+      <File FileName="RINGAWEB/Migrations/20221228060206_a.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/ProductPkg/Product.cs" Line="8" Column="1" />
+      <File FileName="RINGAWEB/Entities/AccountPkg/Account.cs" Line="7" Column="43" />
+      <File FileName="RINGAWEB/Entities/VoucherPkg/VoucherType.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/AccountPkg/AccountGender.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/AccountPkg/AccountRole.cs" Line="1" Column="1" />
+      <File FileName="RINGAWEB/Entities/AccountPkg/AccountShipContact.cs" Line="11" Column="6" />
+      <File FileName="RINGAWEB/Entities/ProductPkg/CategoryType.cs" Line="8" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,12 +37,22 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Program.cs" selected="True" />
+              <Node name="Context" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Entities" expanded="True">
+                <Node name="AccountPkg" expanded="True" />
+                <Node name="BillPkg" expanded="True" />
+                <Node name="ProductPkg" expanded="True" />
+                <Node name="ShopPkg" expanded="True" />
+                <Node name="VoucherPkg" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="ProductServices" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
 </Properties>
