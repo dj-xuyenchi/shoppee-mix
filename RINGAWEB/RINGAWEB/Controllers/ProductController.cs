@@ -21,7 +21,7 @@ namespace RingaWEB.Controllers
         [HttpPost("img")]
         public ActionResult img()
         {
-            return Ok(productServices.testImg());
+            return Ok("aa");
         }
     }
 }

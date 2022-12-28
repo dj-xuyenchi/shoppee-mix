@@ -6,6 +6,7 @@ namespace RingaWEB.Entities.BillPkg
     public class Bill
     {
         public int BillId { get; set; }
+        public string BillCode { get; set; }
         public int? BillStatusId { get; set; }
         public BillStatus? BillStatus { get; set; }
         public DateTime CreateDateTime { get; set; }
@@ -22,5 +23,12 @@ namespace RingaWEB.Entities.BillPkg
         public int? VoucherShipId { get; set; }
         [ForeignKey("VoucherShipId")]
         public Voucher? VoucherShip { get; set; }
+        public int? BuyMethodId { get; set; }
+        [ForeignKey("BuyMethodId")]
+        public BuyMethod? BuyMethod { get; set; }
+        public int? ShipMethodId { get; set; }
+        [ForeignKey("ShipMethodId")]
+        public ShipMethod? ShipMethod { get; set; }
+
     }
 }

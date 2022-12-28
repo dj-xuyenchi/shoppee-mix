@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RingaWEB.Entities.AccountPkg;
+using RingaWEB.Entities.BillPkg;
 using RingaWEB.Entities.ProductPkg;
 using RingaWEB.Entities.ShopPkg;
+using RingaWEB.Entities.VoucherPkg;
+
 namespace RingaWEB.Context
 {
     public class ApplicationContext : DbContext
@@ -22,6 +25,7 @@ namespace RingaWEB.Context
         public DbSet<AccountGender> AccountGenders { get; set; }
         public DbSet<AccountRole> AccountRoles { get; set; }
         public DbSet<AccountStatus> AccountStatuses { get; set; }
+        public DbSet<AccountShipContact> AccountShipContacts { get; set; }
         /// <summary>
         /// Shop
         /// </summary>
@@ -29,6 +33,18 @@ namespace RingaWEB.Context
         public DbSet<ShopeType> ShopeTypes { get; set; }
         public DbSet<ShopShopType> ShopShopTypes { get; set; }
         public DbSet<ShopStatus> ShopStatuses { get; set; }
+        /// <summary>
+        /// Bill
+        /// </summary>
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<BillStatus> BillStatuses { get; set; }
+        public DbSet<BuyMethod> BuyMethods { get; set; }
+        public DbSet<ShipMethod> ShipMethods { get; set; }
+        /// <summary>
+        /// Voucher
+        /// </summary>
+        public DbSet<Voucher> Vouchers { get; set; }
+        public DbSet<VoucherType> VoucherTypes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Config.dbConectionName());

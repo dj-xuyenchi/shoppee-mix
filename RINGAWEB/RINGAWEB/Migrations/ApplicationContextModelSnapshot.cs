@@ -34,7 +34,7 @@ namespace RingaWEB.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("BirthDay")
+                    b.Property<DateTime?>("BirthDay")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreateDateTime")
@@ -64,7 +64,7 @@ namespace RingaWEB.Migrations
                     b.Property<int?>("StatusId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdateDateTime")
+                    b.Property<DateTime?>("UpdateDateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
@@ -124,6 +124,33 @@ namespace RingaWEB.Migrations
                     b.ToTable("AccountRoles");
                 });
 
+            modelBuilder.Entity("RingaWEB.Entities.AccountPkg.AccountShipContact", b =>
+                {
+                    b.Property<int>("AccountShipContactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountShipContactId"), 1L, 1);
+
+                    b.Property<DateTime>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReveiceName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReveicePhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("AccountShipContactId");
+
+                    b.ToTable("AccountShipContacts");
+                });
+
             modelBuilder.Entity("RingaWEB.Entities.AccountPkg.AccountStatus", b =>
                 {
                     b.Property<int>("AccountStatusId")
@@ -143,6 +170,131 @@ namespace RingaWEB.Migrations
                     b.HasKey("AccountStatusId");
 
                     b.ToTable("AccountStatuses");
+                });
+
+            modelBuilder.Entity("RingaWEB.Entities.BillPkg.Bill", b =>
+                {
+                    b.Property<int>("BillId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillId"), 1L, 1);
+
+                    b.Property<int?>("BillStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BuyMethodId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CloseDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ShipMethodId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("ShipPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("StarPoint")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("TotalBillAfterEverything")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("TotalBillAfterVoucher")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("TotalBillBeforeVoucher")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime?>("UpdateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("VoucherBillId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VoucherShipId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BillId");
+
+                    b.HasIndex("BillStatusId");
+
+                    b.HasIndex("BuyMethodId");
+
+                    b.HasIndex("ShipMethodId");
+
+                    b.HasIndex("VoucherBillId");
+
+                    b.HasIndex("VoucherShipId");
+
+                    b.ToTable("Bills");
+                });
+
+            modelBuilder.Entity("RingaWEB.Entities.BillPkg.BillStatus", b =>
+                {
+                    b.Property<int>("BillStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillStatusId"), 1L, 1);
+
+                    b.Property<string>("BillStatusCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BillStatusDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BillStatusId");
+
+                    b.ToTable("BillStatuses");
+                });
+
+            modelBuilder.Entity("RingaWEB.Entities.BillPkg.BuyMethod", b =>
+                {
+                    b.Property<int>("BuyMethodId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BuyMethodId"), 1L, 1);
+
+                    b.Property<string>("BuyMethodCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BuyMethodDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BuyMethodId");
+
+                    b.ToTable("BuyMethods");
+                });
+
+            modelBuilder.Entity("RingaWEB.Entities.BillPkg.ShipMethod", b =>
+                {
+                    b.Property<int>("ShipMethodId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShipMethodId"), 1L, 1);
+
+                    b.Property<string>("ShipMethodCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShipMethodDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShipMethodId");
+
+                    b.ToTable("ShipMethods");
                 });
 
             modelBuilder.Entity("RingaWEB.Entities.ProductPkg.Product", b =>
@@ -312,15 +464,21 @@ namespace RingaWEB.Migrations
                     b.Property<int>("AccountOwnerId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ShopName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ShopStatusId")
+                    b.Property<int?>("ShopStatusId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ShopeStatusId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDateTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("ShopId");
 
@@ -364,9 +522,14 @@ namespace RingaWEB.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("ShopTypeId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("ShopShopTypeId");
+
+                    b.HasIndex("ShopId");
+
+                    b.HasIndex("ShopTypeId");
 
                     b.ToTable("ShopShopTypes");
                 });
@@ -392,6 +555,60 @@ namespace RingaWEB.Migrations
                     b.ToTable("ShopStatuses");
                 });
 
+            modelBuilder.Entity("RingaWEB.Entities.VoucherPkg.Voucher", b =>
+                {
+                    b.Property<int>("VoucherId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoucherId"), 1L, 1);
+
+                    b.Property<DateTime>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VoucherCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VoucherDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VoucherTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("VoucherValue")
+                        .HasColumnType("float");
+
+                    b.HasKey("VoucherId");
+
+                    b.ToTable("Vouchers");
+                });
+
+            modelBuilder.Entity("RingaWEB.Entities.VoucherPkg.VoucherType", b =>
+                {
+                    b.Property<int>("VoucherTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoucherTypeId"), 1L, 1);
+
+                    b.Property<string>("VoucherTypeCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VoucherTypeDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VoucherTypeId");
+
+                    b.ToTable("VoucherTypes");
+                });
+
             modelBuilder.Entity("RingaWEB.Entities.AccountPkg.Account", b =>
                 {
                     b.HasOne("RingaWEB.Entities.AccountPkg.AccountRole", "AccountRole")
@@ -411,6 +628,39 @@ namespace RingaWEB.Migrations
                     b.Navigation("AccountRole");
 
                     b.Navigation("AccountStatus");
+                });
+
+            modelBuilder.Entity("RingaWEB.Entities.BillPkg.Bill", b =>
+                {
+                    b.HasOne("RingaWEB.Entities.BillPkg.BillStatus", "BillStatus")
+                        .WithMany()
+                        .HasForeignKey("BillStatusId");
+
+                    b.HasOne("RingaWEB.Entities.BillPkg.BuyMethod", "BuyMethod")
+                        .WithMany()
+                        .HasForeignKey("BuyMethodId");
+
+                    b.HasOne("RingaWEB.Entities.BillPkg.ShipMethod", "ShipMethod")
+                        .WithMany()
+                        .HasForeignKey("ShipMethodId");
+
+                    b.HasOne("RingaWEB.Entities.VoucherPkg.Voucher", "VoucherBill")
+                        .WithMany()
+                        .HasForeignKey("VoucherBillId");
+
+                    b.HasOne("RingaWEB.Entities.VoucherPkg.Voucher", "VoucherShip")
+                        .WithMany()
+                        .HasForeignKey("VoucherShipId");
+
+                    b.Navigation("BillStatus");
+
+                    b.Navigation("BuyMethod");
+
+                    b.Navigation("ShipMethod");
+
+                    b.Navigation("VoucherBill");
+
+                    b.Navigation("VoucherShip");
                 });
 
             modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductDetail", b =>
@@ -486,13 +736,28 @@ namespace RingaWEB.Migrations
 
                     b.HasOne("RingaWEB.Entities.ShopPkg.ShopStatus", "ShopStatus")
                         .WithMany()
-                        .HasForeignKey("ShopStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShopStatusId");
 
                     b.Navigation("AccountOwner");
 
                     b.Navigation("ShopStatus");
+                });
+
+            modelBuilder.Entity("RingaWEB.Entities.ShopPkg.ShopShopType", b =>
+                {
+                    b.HasOne("RingaWEB.Entities.ShopPkg.Shop", "Shop")
+                        .WithMany()
+                        .HasForeignKey("ShopId");
+
+                    b.HasOne("RingaWEB.Entities.ShopPkg.ShopeType", "ShopType")
+                        .WithMany()
+                        .HasForeignKey("ShopTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Shop");
+
+                    b.Navigation("ShopType");
                 });
 #pragma warning restore 612, 618
         }

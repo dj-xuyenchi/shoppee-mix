@@ -7,6 +7,7 @@ namespace RingaWEB.Entities.ShopPkg
     public class Shop
     {
         public int ShopId { get; set; }
+        public string ShopCode { get; set; }
         public int AccountOwnerId { get; set; }
         [ForeignKey("AccountOwnerId")]
         public Account AccountOwner { get; set; }
