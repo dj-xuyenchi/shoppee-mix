@@ -21,7 +21,7 @@ namespace RingaWEB.Migrations
                 type: "float",
                 nullable: true);
 
-            migrationBuilder.AddColumn<double>(
+             migrationBuilder.AddColumn<double>(
                 name: "MinimunTotalBillAccept",
                 table: "Vouchers",
                 type: "float",
