@@ -330,6 +330,13 @@ namespace RingaWEB.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProductShowName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
@@ -349,9 +356,12 @@ namespace RingaWEB.Migrations
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("ProductPropertyName")
+                    b.Property<string>("ProductDetailName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PropertyDetailId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
@@ -362,6 +372,8 @@ namespace RingaWEB.Migrations
                     b.HasKey("ProductDetailId");
 
                     b.HasIndex("ParentId");
+
+                    b.HasIndex("PropertyDetailId");
 
                     b.ToTable("ProductDetails");
                 });
@@ -426,14 +438,18 @@ namespace RingaWEB.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"));
 
-                    b.Property<int?>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<string>("PropertyName")
+                    b.Property<string>("PropertyCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PropertySort")
+                    b.Property<string>("PropertyDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PropertySort")
                         .HasColumnType("int");
 
                     b.HasKey("PropertyId");
@@ -591,14 +607,14 @@ namespace RingaWEB.Migrations
                     b.Property<DateTime>("CreateDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsPercentValue")
+                        .HasColumnType("bit");
+
                     b.Property<double?>("MaximunValue")
                         .HasColumnType("float");
 
                     b.Property<double?>("MinimunTotalBillAccept")
                         .HasColumnType("float");
-
-                    b.Property<DateTime?>("UpdateDateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("VoucherCode")
                         .IsRequired()
@@ -620,6 +636,8 @@ namespace RingaWEB.Migrations
                     b.HasKey("VoucherId");
 
                     b.HasIndex("VoucherStatusId");
+
+                    b.HasIndex("VoucherTypeId");
 
                     b.ToTable("Vouchers");
                 });
@@ -732,7 +750,13 @@ namespace RingaWEB.Migrations
                         .WithMany()
                         .HasForeignKey("ParentId");
 
+                    b.HasOne("RingaWEB.Entities.ProductPkg.PropertyDetail", "PropertyDetail")
+                        .WithMany()
+                        .HasForeignKey("PropertyDetailId");
+
                     b.Navigation("ParentProductDetail");
+
+                    b.Navigation("PropertyDetail");
                 });
 
             modelBuilder.Entity("RingaWEB.Entities.ProductPkg.ProductDetailPropertyDetail", b =>
@@ -769,7 +793,9 @@ namespace RingaWEB.Migrations
                 {
                     b.HasOne("RingaWEB.Entities.ProductPkg.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
                 });
@@ -831,7 +857,15 @@ namespace RingaWEB.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("RingaWEB.Entities.VoucherPkg.VoucherType", "VoucherType")
+                        .WithMany()
+                        .HasForeignKey("VoucherTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("VoucherStatus");
+
+                    b.Navigation("VoucherType");
                 });
 #pragma warning restore 612, 618
         }

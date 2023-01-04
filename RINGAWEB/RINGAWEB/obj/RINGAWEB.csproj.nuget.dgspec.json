@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj": {}
+    "C:\\Users\\LTS\\Documents\\GitHub\\shoppee-mix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj": {
+    "C:\\Users\\LTS\\Documents\\GitHub\\shoppee-mix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj",
+        "projectUniqueName": "C:\\Users\\LTS\\Documents\\GitHub\\shoppee-mix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj",
         "projectName": "RingaWEB",
-        "projectPath": "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj",
+        "projectPath": "C:\\Users\\LTS\\Documents\\GitHub\\shoppee-mix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj",
         "packagesPath": "C:\\Users\\LTS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\obj\\",
+        "outputPath": "C:\\Users\\LTS\\Documents\\GitHub\\shoppee-mix\\RINGAWEB\\RINGAWEB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

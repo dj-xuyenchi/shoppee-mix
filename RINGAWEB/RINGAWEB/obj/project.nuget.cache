@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mrA1Pf8dJUllC28JGvq31HjTTkSFPyKMyNT2wRRttLfbMyvK9VVSBeMc7Q6V5+u7KbvIungfR395m7NWlfolPg==",
+  "dgSpecHash": "9cc6tXwVlhZUpwhQSY2Ukqe80bMxgY2Xn20XqTrIU3qWVqQafhXTcTJRUA43UZMo/jDWdUI0gUNQPlINhfRX1A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LTS\\Desktop\\shoppeemix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj",
+  "projectFilePath": "C:\\Users\\LTS\\Documents\\GitHub\\shoppee-mix\\RINGAWEB\\RINGAWEB\\RingaWEB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LTS\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\LTS\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
